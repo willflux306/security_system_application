@@ -5,6 +5,9 @@ Written by Will Lattimore in conjunction with chatGPT-4o (OpenAI)
 Dec 21 2024
 Designed and tested on Macbook Air M2 2022, Sonoma 14.5
 
+Assuming the application can be tested on OSX with camera such as Macbook.
+Assuming use of the default built in camera as substitution for a real-life security camera via HTTP request.
+
 How to use: 
     1. Run the script. ex /path/to/security_system_application/main.py , python3 main.py
     2. Press 'n' to enter normal application mode or press 't' for unit testing mode.
