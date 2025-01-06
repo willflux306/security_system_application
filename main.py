@@ -7,6 +7,7 @@ import cv2
 import logging
 import json
 from datetime import datetime
+import time
 
 # Main Application Code
 class Logger:
@@ -99,6 +100,14 @@ def take_photo(output_filename, camera_index=0):
         if not camera.isOpened():
             raise Exception(f"Error: Camera {camera_index} is not opened.")
         
+         # Allow the camera to adjust white balance and exposure
+        warmup_frames = 10
+        for i in range(warmup_frames):
+            ret, frame = camera.read()
+            if not ret:
+                raise Exception("Error: Failed to capture frame during warmup.")
+            time.sleep(0.1)  # 100 ms delay between frames
+
         # Capture image frame from camera, if ret (bool) is true, capture was succesful
         ret, frame = camera.read()
         if not ret:
