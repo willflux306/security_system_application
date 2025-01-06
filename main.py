@@ -41,11 +41,17 @@ class Logger:
 
     def log_info(self, info):
         """Logs an info message."""
-        self.logger.info(info)
+        try:
+            self.logger.info(info)
+        except Exception as e:
+            print(f"Failed to log info message: {info}. Error: {e}")
 
     def log_error(self, info):
         """Logs an error message."""
-        self.logger.error(info)
+        try:
+            self.logger.error(info)
+        except Exception as e:
+            print(f"Failed to log error message: {info}. Error: {e}")
 
 def log_to_json(log_message, log_type, file_path="SSA_Events.json"):
     """
